@@ -10,7 +10,15 @@ import html
 import nltk
 import contractions
 from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
+
+# Handle NLTK 3.8.1 punkt_tab compatibility issue
+try:
+    from nltk.tokenize import word_tokenize
+except ImportError:
+    # Fallback for older NLTK versions or missing punkt_tab
+    import nltk.tokenize
+    word_tokenize = nltk.tokenize.word_tokenize
+
 from nltk.stem import WordNetLemmatizer
 
 # Set random seed for reproducibility
@@ -23,17 +31,13 @@ np.random.seed(SEED)
 # Download required NLTK data (only once)
 def download_nltk_data():
     """Download required NLTK datasets"""
-    try:
-        nltk.data.find('tokenizers/punkt')
-        nltk.data.find('corpora/stopwords')
-        nltk.data.find('corpora/wordnet')
-    except LookupError:
-        print("Downloading required NLTK data...")
-        nltk.download('punkt', quiet=True)
-        nltk.download('stopwords', quiet=True)
-        nltk.download('wordnet', quiet=True)
-        nltk.download('punkt_tab', quiet=True)
-        print("✓ NLTK data downloaded")
+    required_packages = ['punkt', 'punkt_tab', 'stopwords', 'wordnet', 'omw-1.4']
+    
+    for package_name in required_packages:
+        try:
+            nltk.download(package_name, quiet=True, raise_on_error=False)
+        except Exception:
+            pass  # Ignore errors, will fail later if truly missing
 
 # Initialize once
 download_nltk_data()

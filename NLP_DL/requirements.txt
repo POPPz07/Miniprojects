@@ -1,6 +1,6 @@
 # Core Dependencies
 pandas==2.2.0
-numpy==1.26.3
+numpy==1.26.4
 
 # NLP Libraries
 nltk==3.8.1
@@ -8,13 +8,13 @@ contractions==0.1.73
 gensim==4.3.2
 
 # Machine Learning
-scikit-learn==1.5.0
+scikit-learn==1.7.2
 xgboost==2.0.3
 scipy==1.12.0
 
 # Deep Learning
-tensorflow==2.15.0
-keras==2.15.0
+tensorflow-cpu==2.16.1
+keras>=3.0.0
 
 # Web Framework
 streamlit==1.56.0
