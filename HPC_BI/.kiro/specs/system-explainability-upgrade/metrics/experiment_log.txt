@@ -1,0 +1,32 @@
+Computation Intensity Analysis:
+  Operation: RFM_Analysis
+  FLOPs: 3.97884e+06
+  Memory Accesses: 6.04784e+07 bytes
+  Compute Time: 0.170237s
+  Intensity (FLOPs/byte): 0.0657895
+  Parallelizable: Yes
+----------------------------------------
+========================================
+Experiment: Iteration_3_Thread_Scaling
+Timestamp: 2026-04-15 23:35:01
+Iteration: 3
+Configuration:
+  Thread Count: 8
+  Data Size: 397884 rows
+Performance:
+  Sequential Time: 0.023972s
+  Parallel Time: 0.022780s
+  Speedup: 1.052327x
+  Efficiency: 13.154083%
+Operation Times:
+  Basic_Parallel: 0.020294s
+  Basic_Sequential: 0.020221s
+  Correlation_Analysis: 0.004212s
+  Moving_Average: 0.057526s
+  Percentile_Computation: 0.036503s
+  RFM_Analysis: 0.170237s
+  TopK_Customers: 0.017387s
+  TopK_Products: 0.349468s
+Notes: Optimized memory access and adaptive thread selection
+========================================
+
